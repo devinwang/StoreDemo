@@ -1,0 +1,60 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+th.mysort {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+table .mysort:after{
+    content:"";
+    float:right;
+    margin-right: 20px;
+    margin-top:7px;
+    visibility:hidden;
+    width: 0;
+    height: 0;
+    border-left:6px solid transparent;
+    border-right:6px solid transparent;
+    border-top:none;
+    border-bottom:6px solid #000;
+}
+
+table .mysort-desc:after{
+    border-top:6px solid #000;
+    border-bottom:none;
+}
+
+table .mysort-desc, table .mysort-asc{
+        background-color: #999;
+}
+
+table .mysort:hover:after, table .mysort-asc:after, table .mysort-desc:after {
+    visibility:visible;
+}

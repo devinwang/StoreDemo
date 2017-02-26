@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div ng-app="indexModule" ng-controller="DataController as $ctrl">
+    <div class="form-group">
+        <lable onformchange="selCurrency">
+            <h1>Select Currency:</h1>
+        </lable>
+        <select id="selCurrency" class="form-control" ng-model="currencyName" ng-change="changedCurrency(currencyName)">
+            <option value="{{cyname}}" ng-repeat="cyname in currencies">{{cyname}}</option>
+        </select>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Product list:</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped table-hover" ts-wrapper>
+                <thead>
+                    <tr my-sort-group>
+                        <th class="col-md-4" my-sort-heading on-sort="onSort(sortId, desc)" sort-id="1">Id</th>
+                        <th class="col-md-4" my-sort-heading on-sort="onSort(sortId, desc)" sort-id="2">Name</th>
+                        <th class="col-md-2" my-sort-heading on-sort="onSort(sortId, desc)" sort-id="3">Price(<span ng-bind="currencyName"></span>)</th>
+                        <th class="col-md-2" my-sort-heading on-sort="onSort(sortId, desc)" sort-id="4">Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in productList" ts-repeat>
+                        <td><span ng-bind="item.Id"></span></td>
+                        <td><span ng-bind="item.Name"></span></td>
+                        <td><span ng-bind="item.Price|number:2"></span></td>
+                        <td><span ng-bind="item.Type"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/index")
+}
